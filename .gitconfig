@@ -1,0 +1,13 @@
+[core]
+	editor = vim
+[user]
+	email = justin.luque@gmail.com
+	name = Justin Luque
+	signingkey = C:\\Users\\justi\\.ssh\\id_ed25519.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	unstage = reset HEAD --

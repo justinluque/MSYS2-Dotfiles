@@ -3,9 +3,6 @@
 [user]
 	email = justin.luque@gmail.com
 	name = Justin Luque
-	signingkey = C:\\Users\\justi\\.ssh\\id_ed25519.pub
-[gpg]
-	format = ssh
 [commit]
 	gpgsign = true
 [alias]

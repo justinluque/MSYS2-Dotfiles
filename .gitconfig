@@ -1,5 +1,5 @@
 [core]
-	editor = vim
+	editor = nvim
 [user]
 	email = justin.luque@gmail.com
 	name = Justin Luque

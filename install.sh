@@ -31,3 +31,26 @@ else
     echo "Then, rerun this script."
 fi
 
+# .BASHRC SETUP
+
+# Define the source and destination for .bashrc
+BASHRC_SOURCE="$DOTFILES_DIR/.bashrc"
+BASHRC_DEST="$HOME/.bashrc"
+
+# Copy .bashrc from the dotfiles directory to the home directory
+if [ -f "$BASHRC_SOURCE" ]; then
+    cp "$BASHRC_SOURCE" "$BASHRC_DEST"
+    echo ".bashrc copied to $HOME"
+else
+    echo "Error: .bashrc not found in $DOTFILES_DIR"
+    exit 1
+fi
+
+# Reload .bashrc to apply changes immediately
+if [ -f "$BASHRC_DEST" ]; then
+    source "$BASHRC_DEST"
+    echo ".bashrc reloaded"
+else
+    echo "Error: Failed to reload .bashrc"
+fi
+

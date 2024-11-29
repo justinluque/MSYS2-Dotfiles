@@ -1,9 +1,12 @@
 #!/bin/bash
 
-# .GITCONFIG SETUP
+# GENERAL SETUP
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOTFILES_DIR="${1:-$SCRIPT_DIR}" # Default to script directory if no argument provided
+
+# .GITCONFIG SETUP
+
 GITCONFIG_SOURCE="$DOTFILES_DIR/.gitconfig"
 GITCONFIG_DEST="$HOME/.gitconfig"
 

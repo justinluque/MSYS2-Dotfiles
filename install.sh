@@ -97,9 +97,6 @@ echo "Signing key added to global git config."
 
 # SSH SETUP
 
-# Start ssh-agent
-eval "$(ssh-agent -s)"
-
 # Define the file path for the SSH key
 KEY_PATH="$HOME/.ssh/id_ed25519"
 

@@ -1,0 +1,6 @@
+mingw-w64-ucrt-x86_64-toolchain
+cmake
+git
+git-filter-repo
+mingw-w64-ucrt-x86_64-neovim
+man

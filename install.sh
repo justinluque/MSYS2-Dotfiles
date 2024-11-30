@@ -103,36 +103,18 @@ eval "$(ssh-agent -s)"
 # Define the file path for the SSH key
 KEY_PATH="$HOME/.ssh/id_ed25519"
 
-# Function to check if key is loaded into ssh-agent
-is_key_loaded() {
-    ssh-add -l 2>/dev/null | grep -q "$KEY_PATH"
-}
-
 # Check if the SSH key already exists
 if [ -f "$KEY_PATH" ]; then
     echo "SSH key already exists at $KEY_PATH"
-
-    # Check if the key is loaded into ssh-agent
-    if is_key_loaded; then
-        echo "The SSH key is already loaded into the ssh-agent."
-    else
-        echo "The SSH key is not loaded into the ssh-agent. Adding it now..."
-        ssh-add "$KEY_PATH"
-    fi
 else
     # Ask for the user's email address
     read -p "Enter your email for the SSH key: " email
 
     # Generate the SSH key with Ed25519 algorithm
     echo "Generating SSH key with Ed25519 algorithm..."
-    ssh-keygen -t ed25519 -C "$email" -f "$KEY_PATH" -N ""
+    ssh-keygen -t ed25519 -C "$email" -f "$KEY_PATH"
 
     echo "SSH key generated successfully at $KEY_PATH"
-
-    # Add the new key to the ssh-agent
-    echo "Adding the new SSH key to ssh-agent..."
-    ssh-add "$KEY_PATH"
-
     echo "Public key: $KEY_PATH.pub"
 fi
 

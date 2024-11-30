@@ -13,7 +13,7 @@ The `install.sh` script performs several key tasks:
 To install the dotfiles into the current directory, run the following commands:
 
 ```
-git clone git@github.com:mrtoodamnjustin/Msys2Dotfiles.git dotfiles/
+git clone https://github.com/mrtoodamnjustin/MSYS2-Dotfiles.git dotfiles/
 cd dotfiles/
 ./install.sh
 ```

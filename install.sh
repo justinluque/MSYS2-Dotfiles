@@ -41,20 +41,31 @@ else
     exit 1
 fi
 
+# GPG SETUP
+
 # Check for a GPG signing key
 GPG_KEY=$(gpg --list-secret-keys --keyid-format LONG | grep 'sec' | awk '{print $2}' | cut -d '/' -f 2)
 
 if [ -n "$GPG_KEY" ]; then
     echo "Found GPG key: $GPG_KEY"
     # Add the GPG key to the git config
-    git config --global user.signingkey "$GPG_KEY"
-    echo "Signing key added to global git config."
 else
-    echo "No GPG key found."
-    echo "To sign Git commits, please create a GPG key using the following command:"
-    echo "    gpg --full-generate-key"
-    echo "Then, rerun this script."
+    echo "No GPG key found. Initiating GPG key generation..."
+    gpg --full-generate-key
+
+    # Check again after key generation
+    GPG_KEY=$(gpg --list-secret-keys --keyid-format LONG | grep 'sec' | awk '{print $2}' | cut -d '/' -f 2)
+    if [ -n "$GPG_KEY" ]; then
+        echo "New GPG key created: $GPG_KEY"
+    else
+        echo "Key generation failed or was canceled. Please try again."
+    fi
 fi
+
+# LINK GPG TO GIT
+
+git config --global user.signingkey "$GPG_KEY"
+echo "Signing key added to global git config."
 
 # .BASHRC SETUP
 

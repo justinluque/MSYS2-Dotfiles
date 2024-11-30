@@ -10,7 +10,7 @@ The `install.sh` script performs several key tasks:
 
 # Installation
 
-To install the dotfiles into the current directory, run the following commands:
+To quickly set up your MSYS2 environment with the dotfiles and necessary configurations, follow these steps: 
 
 ```
 git clone https://github.com/mrtoodamnjustin/MSYS2-Dotfiles.git dotfiles/

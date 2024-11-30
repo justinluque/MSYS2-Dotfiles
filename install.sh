@@ -4,6 +4,28 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOTFILES_DIR="${1:-$SCRIPT_DIR}" # Default to script directory if no argument provided
+packages_file="packages.${MSYSTEM,,}.txt"
+
+# INSTALL ENVIRONMENT PACKAGES
+
+# Check if the file exists
+if [ -f "$packages_file" ]; then
+    echo "Using packages file: $packages_file"
+    # Process the packages file (e.g., install packages)
+else
+    echo "Error: No packages file found for environment '$MSYSTEM'."
+    echo "Expected file: $packages_file"
+    exit 1
+fi
+
+# Install packages using pacman
+echo "Installing packages listed in $packages_file..."
+if pacman -S --needed --noconfirm - < "$packages_file"; then
+    echo "All packages installed successfully!"
+else
+    echo "Error: Some packages could not be installed."
+    exit 1
+fi
 
 # .GITCONFIG SETUP
 

@@ -4,3 +4,4 @@ git
 git-filter-repo
 mingw-w64-ucrt-x86_64-neovim
 man
+base-devel

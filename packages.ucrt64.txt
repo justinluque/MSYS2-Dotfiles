@@ -4,5 +4,6 @@ git-filter-repo
 mingw-w64-ucrt-x86_64-neovim
 mingw-w64-ucrt-x86_64-lua
 mingw-w64-ucrt-x86_64-lua-luarocks
+mingw-w64-ucrt-x86_64-ttf-jetbrains-mono-nerd
 man
 base-devel

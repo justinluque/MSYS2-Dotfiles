@@ -27,11 +27,6 @@ else
   exit 1
 fi
 
-# Function to check if key is loaded into ssh-agent
-is_key_loaded() {
-  ssh-add -l 2>/dev/null | grep -q "$KEY_PATH"
-}
-$()
 # .BASHRC SETUP
 
 # Define the source and destination for .bashrc
@@ -115,3 +110,11 @@ else
   echo "Public key: $KEY_PATH.pub"
 fi
 
+# INSTALL FONT
+
+echo "Attempting to install JetBrainsNerdFontMono-Regular from /ucrt64/share/fonts/TTF/"
+echo "Please click the option to install on the following screen."
+
+sleep 1
+
+start /ucrt64/share/fonts/TTF/JetBrainsMonoNerdFont-Regular.ttf

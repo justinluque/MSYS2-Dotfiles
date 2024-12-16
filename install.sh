@@ -50,6 +50,21 @@ else
   echo "Error: Failed to reload .bashrc"
 fi
 
+# .MINTTYRC SETUP
+
+# Define the source and destination for .minttyrc
+MINTTYRC_SOURCE="$DOTFILES_DIR/.minttyrc"
+MINTTYRC_DEST="$HOME/.minttyrc"
+
+# Copy .minttyrc from the dotfiles directory to the home directory
+if [ -f "$MINTTYRC_SOURCE" ]; then
+  cp "$MINTTYRC_SOURCE" "$MINTTYRC_DEST"
+  echo ".minttyrc copied to $HOME"
+else
+  echo "Error: .minttyrc not found in $DOTFILES_DIR"
+  exit 1
+fi
+
 # .GITCONFIG SETUP
 
 GITCONFIG_SOURCE="$DOTFILES_DIR/.gitconfig"

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# GENERAL SETUP
+### GENERAL SETUP
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOTFILES_DIR="${1:-$SCRIPT_DIR}" # Default to script directory if no argument provided
 packages_file="packages.${MSYSTEM,,}.txt"
 
-# INSTALL ENVIRONMENT PACKAGES
+### INSTALL ENVIRONMENT PACKAGES
 
 # Check if the file exists
 if [ -f "$packages_file" ]; then
@@ -27,7 +27,7 @@ else
   exit 1
 fi
 
-# .BASHRC SETUP
+### .bashrc SETUP
 
 # Define the source and destination for .bashrc
 BASHRC_SOURCE="$DOTFILES_DIR/.bashrc"
@@ -50,7 +50,7 @@ else
   echo "Error: Failed to reload .bashrc"
 fi
 
-# .MINTTYRC SETUP
+### .minttyrc SETUP
 
 # Define the source and destination for .minttyrc
 MINTTYRC_SOURCE="$DOTFILES_DIR/.minttyrc"
@@ -65,7 +65,7 @@ else
   exit 1
 fi
 
-# .GITCONFIG SETUP
+### .gitconfig SETUP
 
 GITCONFIG_SOURCE="$DOTFILES_DIR/.gitconfig"
 GITCONFIG_DEST="$HOME/.gitconfig"
@@ -79,7 +79,7 @@ else
   exit 1
 fi
 
-# GPG SETUP
+### GPG SETUP
 
 # Check for a GPG signing key
 GPG_KEY=$(gpg --list-secret-keys --keyid-format LONG | grep 'sec' | awk '{print $2}' | cut -d '/' -f 2)
@@ -100,12 +100,12 @@ else
   fi
 fi
 
-# LINK GPG TO GIT
+### LINK GPG TO GIT
 
 git config --global user.signingkey "$GPG_KEY"
 echo "Signing key added to global git config."
 
-# SSH SETUP
+### SSH SETUP
 
 # Define the file path for the SSH key
 KEY_PATH="$HOME/.ssh/id_ed25519"
@@ -125,7 +125,7 @@ else
   echo "Public key: $KEY_PATH.pub"
 fi
 
-# INSTALL FONT
+### INSTALL JetBrainsMonoNerdFont-Regular
 
 echo "Attempting to install JetBrainsNerdFontMono-Regular from /ucrt64/share/fonts/TTF/"
 echo "Please click the option to install on the following screen."
@@ -133,3 +133,5 @@ echo "Please click the option to install on the following screen."
 sleep 1
 
 start /ucrt64/share/fonts/TTF/JetBrainsMonoNerdFont-Regular.ttf
+
+echo "Dotfiles install successfull!"

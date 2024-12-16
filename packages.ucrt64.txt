@@ -1,7 +1,8 @@
 mingw-w64-ucrt-x86_64-toolchain
 cmake
-git
 git-filter-repo
 mingw-w64-ucrt-x86_64-neovim
+mingw-w64-ucrt-x86_64-lua
+mingw-w64-ucrt-x86_64-lua-luarocks
 man
 base-devel

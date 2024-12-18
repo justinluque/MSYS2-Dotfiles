@@ -125,6 +125,29 @@ else
   echo "Public key: $KEY_PATH.pub"
 fi
 
+### Install nvim configuration
+
+# Prompt the user for confirmation
+read -p "Do you want to install the Neovim configuration? (y/n): " response
+
+# Check the user's response
+if [[ "$response" == "y" || "$response" == "Y" ]]; then
+  echo "Cloning the Neovim configuration repository..."
+
+  INSTALL_DIR="/c/Users/$USER/AppData/Local/nvim"
+  REPO_URL="https://github.com/justinluque/nvim-config.git"
+
+  # Clone the repository
+  git clone "$REPO_URL" "$INSTALL_DIR"
+
+  # Check if cloning was successful
+  if [[ $? -eq 0 ]]; then
+    echo "Neovim configuration installed successfully at $INSTALL_DIR"
+  else
+    echo "Failed to clone the repository. Please check your URL or permissions."
+  fi
+fi
+
 ### INSTALL JetBrainsMonoNerdFont-Regular
 
 echo "Attempting to install JetBrainsNerdFontMono-Regular from /ucrt64/share/fonts/TTF/"

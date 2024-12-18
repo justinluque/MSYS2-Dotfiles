@@ -148,6 +148,15 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
   fi
 fi
 
+### Install .clangd
+
+CLANGD_SOURCE = "$DOTFILES_DIR/.clangd"
+CLANGD_DEST = "/c/Users/$USER/AppData/Local/clangd"
+
+mkdir -p "$CLANGD_DEST"
+
+cp "$CLANGD_SOURCE" "$CLANGD_DEST/config.yaml"
+
 ### INSTALL JetBrainsMonoNerdFont-Regular
 
 echo "Attempting to install JetBrainsNerdFontMono-Regular from /ucrt64/share/fonts/TTF/"

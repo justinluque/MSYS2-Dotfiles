@@ -148,6 +148,19 @@ if [[ "$response" == "y" || "$response" == "Y" ]]; then
   fi
 fi
 
+# install xclip bash script
+
+XCLIP_SOURCE = "$DOTFILES_DIR/xclip"
+XCLIP_DEST_FOLDER = "/usr/local/bin"
+XCLIP_DEST = "$XCLIP_DEST_FOLDER/xclip"
+
+echo "Installing xclip bash script"
+
+mkdir -p "$XCLIP_DEST_FOLDER"
+cp "$XCLIP_SOURCE" "$XCLIP_DEST"
+
+echo "Installed xclip"
+
 ### Install .clangd
 
 CLANGD_SOURCE = "$DOTFILES_DIR/.clangd"

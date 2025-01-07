@@ -150,9 +150,9 @@ fi
 
 # install xclip bash script
 
-XCLIP_SOURCE = "$DOTFILES_DIR/xclip"
-XCLIP_DEST_FOLDER = "/usr/local/bin"
-XCLIP_DEST = "$XCLIP_DEST_FOLDER/xclip"
+XCLIP_SOURCE="$DOTFILES_DIR/xclip"
+XCLIP_DEST_FOLDER="/usr/local/bin"
+XCLIP_DEST="$XCLIP_DEST_FOLDER/xclip"
 
 echo "Installing xclip bash script"
 
@@ -163,8 +163,8 @@ echo "Installed xclip"
 
 ### Install .clangd
 
-CLANGD_SOURCE = "$DOTFILES_DIR/.clangd"
-CLANGD_DEST = "/c/Users/$USER/AppData/Local/clangd"
+CLANGD_SOURCE="$DOTFILES_DIR/.clangd"
+CLANGD_DEST="/c/Users/$USER/AppData/Local/clangd"
 
 mkdir -p "$CLANGD_DEST"
 

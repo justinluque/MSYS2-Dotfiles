@@ -8,7 +8,7 @@ mingw-w64-ucrt-x86_64-lua-luarocks
 mingw-w64-ucrt-x86_64-ttf-jetbrains-mono-nerd
 mingw-w64-ucrt-x86_64-fzf
 mingw-w64-ucrt-x86_64-ripgrep
-mingw-w64-ucrt-x86_64-python-pynvim 
-mingw-w64-ucrt-x86_64-nodejs-neovim
+mingw-w64-ucrt-x86_64-python-pynvim
+mingw-w64-ucrt-x86_64-nodejs-neovim
 base-devel
 man
